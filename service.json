@@ -1,0 +1,16 @@
+{
+  "name": "video-tracker",
+  "packageName": "video-tracker",
+  "packageRevision": "latest",
+  "runtime": {
+    "numReplicas": 1,
+    "concurrency": 3,
+    "podType": "gpu-k80-s",
+    "runnerImage": "gcr.io/viewo-g/piper/agent/gpu/torch_opencv_4:1.8.16.0"
+  },
+  "initParams": {
+    "project_name": "My project",
+    "package_name": "video-tracker"
+  },
+  "moduleName": "default_module"
+}

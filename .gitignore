@@ -1,0 +1,7 @@
+.dataloop
+.git
+venv/
+.dataloop/
+.idea/
+
+*.pth

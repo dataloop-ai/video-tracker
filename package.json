@@ -1,0 +1,40 @@
+{
+  "modules": [
+    {
+      "name": "default_module",
+      "entryPoint": "main.py",
+      "initInputs": [
+        {
+          "type": "Json",
+          "name": "project_name"
+        },
+        {
+          "type": "Json",
+          "name": "package_name"
+        }
+      ],
+      "functions": [
+        {
+          "name": "track_bounding_box",
+          "description": "Tracks a bounding box annotation on video",
+          "input": [
+            {
+              "type": "Item",
+              "name": "item"
+            },
+            {
+              "type": "Annotation",
+              "name": "annotation"
+            },
+            {
+              "type": "Json",
+              "name": "frame_duration"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [],
+  "name": "video-tracker"
+}
