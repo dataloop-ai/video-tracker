@@ -7,8 +7,6 @@ Dataloop FaaS example for functions that tracks bounding-box annotations.
 You need to download the artifacts of this package from:
 https://storage.googleapis.com/dtlpy/model_assets/video-tracker/artifacts.zip
 
-After downloading, extract the files and move them to the "weights" directory in this repository
-
 ## SDK Installation
 
 You need to have dtlpy installed, if don't already, install it by running:
@@ -73,9 +71,9 @@ package = project.packages.push(package_name=package_name, modules=modules)
 ####################
 # upload artifacts #
 ####################
-project.artifacts.upload(filepath=os.path.join('weights', 'config_davis.json'),
+project.artifacts.upload(filepath=os.path.join('<path to downloaded artifact>', 'config_davis.json'),
                          package_name=package_name)
-project.artifacts.upload(filepath=os.path.join('weights', 'SiamMask_DAVIS.pth'),
+project.artifacts.upload(filepath=os.path.join('<path to downloaded artifact>', 'SiamMask_DAVIS.pth'),
                          package_name=package_name)
 
 ##################
