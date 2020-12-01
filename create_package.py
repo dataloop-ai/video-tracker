@@ -2,7 +2,7 @@ import dtlpy as dl
 import os
 
 package_name = 'video-tracker'
-project_name = 'My project'
+project_name = 'video-tracker-test'
 project = dl.projects.get(project_name=project_name)
 
 ##########################
@@ -46,8 +46,8 @@ project.artifacts.upload(filepath=os.path.join('weights', 'SiamMask_DAVIS.pth'),
 # deploy service #
 ##################
 init_input = [
-    dl.FunctionIO(name=project_name, type=dl.PackageInputType.JSON, value=project_name),
-    dl.FunctionIO(name=package_name, type=dl.PackageInputType.JSON, value=package.name)
+    dl.FunctionIO(name='project_name', type=dl.PackageInputType.JSON, value=project_name),
+    dl.FunctionIO(name='package_name', type=dl.PackageInputType.JSON, value=package.name)
 ]
 service = package.services.deploy(service_name=package.name,
                                   module_name='default_module',
@@ -84,4 +84,4 @@ execution_input = [
     dl.FunctionIO(name='frame_duration', type=dl.PackageInputType.JSON, value=30)
 ]
 
-execution = service.execute(execution_input=execution_input)
+execution = service.execute(execution_input=execution_input, function_name='track_bounding_box')

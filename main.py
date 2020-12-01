@@ -79,6 +79,7 @@ class ServiceRunner(dl.BaseServiceRunner):
             item_stream_url = item.stream
             bbx = annotation.coordinates
             start_frame = annotation.start_frame
+            annotation.fps = item.fps
 
             logger.info('[Tracker] Started')
             tic_get_cap = time.time()
@@ -173,6 +174,7 @@ class ServiceRunner(dl.BaseServiceRunner):
                                                               np.sum(runtime_load_frame) + np.sum(runtime_track),
                                                               np.mean(runtime_load_frame),
                                                               np.mean(runtime_track)))
+            annotation.update()
             progress.update(status='success')
         except Exception:
             logger.exception('Failed during track:')
