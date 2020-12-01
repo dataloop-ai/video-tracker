@@ -64,7 +64,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         self.siammask = load_pretrain(self.siammask, args.resume)
         self.siammask.eval().to(self.device)
 
-    def track_bounding_box(self, item, annotation, frame_duration=60, progress=None):
+    def track_bounding_box(self, item, annotation, frame_duration=100, progress=None):
         """
 
         :param item: dl.Item

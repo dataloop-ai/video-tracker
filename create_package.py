@@ -81,7 +81,7 @@ execution_input = [
     dl.FunctionIO(name='item', type=dl.PackageInputType.ITEM, value={'item_id': item.id}),
     dl.FunctionIO(name='annotation', type=dl.PackageInputType.ANNOTATION,
                   value={'item_id': item.id, 'annotation_id': annotation.id}),
-    dl.FunctionIO(name='frame_duration', type=dl.PackageInputType.JSON, value=30)
+    dl.FunctionIO(name='frame_duration', type=dl.PackageInputType.JSON, value=100)
 ]
 
 execution = service.execute(execution_input=execution_input, function_name='track_bounding_box')

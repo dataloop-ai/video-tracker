@@ -80,8 +80,8 @@ project.artifacts.upload(filepath=os.path.join('<path to downloaded artifact>', 
 # deploy service #
 ##################
 init_input = [
-    dl.FunctionIO(name=project_name, type=dl.PackageInputType.JSON, value=project_name),
-    dl.FunctionIO(name=package_name, type=dl.PackageInputType.JSON, value=package.name)
+    dl.FunctionIO(name='project_name', type=dl.PackageInputType.JSON, value=project_name),
+    dl.FunctionIO(name='package_name', type=dl.PackageInputType.JSON, value=package.name)
 ]
 service = package.services.deploy(service_name=package.name,
                                   module_name='default_module',
@@ -115,7 +115,7 @@ execution_input = [
     dl.FunctionIO(name='item', type=dl.PackageInputType.ITEM, value={'item_id': item.id}),
     dl.FunctionIO(name='annotation', type=dl.PackageInputType.ANNOTATION,
                   value={'item_id': item.id, 'annotation_id': annotation.id}),
-    dl.FunctionIO(name='frame_duration', type=dl.PackageInputType.JSON, value=30)
+    dl.FunctionIO(name='frame_duration', type=dl.PackageInputType.JSON, value=100)
 ]
 
 execution = service.execute(execution_input=execution_input)
