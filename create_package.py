@@ -65,17 +65,7 @@ service = package.services.deploy(service_name=package.name,
 # execute #
 ###########
 item = dl.items.get(item_id='')
-annotation = dl.Annotation.new(
-    annotation_definition=dl.Box(
-        top=100,
-        left=150,
-        bottom=200,
-        right=300,
-        label='car'
-    ),
-    item=item
-)
-annotation = annotation.upload()
+annotation = dl.annotations.get(annotation_id='')
 
 execution_input = [
     dl.FunctionIO(name='item', type=dl.PackageInputType.ITEM, value={'item_id': item.id}),
