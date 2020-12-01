@@ -174,7 +174,8 @@ class ServiceRunner(dl.BaseServiceRunner):
                                                               np.sum(runtime_load_frame) + np.sum(runtime_track),
                                                               np.mean(runtime_load_frame),
                                                               np.mean(runtime_track)))
-            annotation.update()
+            annotation.delete()
+            item.annotations.upload(annotations=[annotation])
             progress.update(status='success')
         except Exception:
             logger.exception('Failed during track:')
