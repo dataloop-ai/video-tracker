@@ -2,7 +2,7 @@ import dtlpy as dl
 import os
 
 package_name = 'video-tracker'
-project_name = 'video-tracker-test'
+project_name = 'your_project_name'
 project = dl.projects.get(project_name=project_name)
 
 ##########################
@@ -32,14 +32,14 @@ modules = [
 ################
 # push package #
 ################
-package = project.packages.push(package_name=package_name, modules=modules)
+package = project.packages.push(package_name=package_name, modules=modules, src_path='your_entry_point_source_path')
 
 ####################
 # upload artifacts #
 ####################
-project.artifacts.upload(filepath=os.path.join('<path to weight>', 'config_davis.json'),
+project.artifacts.upload(filepath=os.path.join('your_artifact_source_path', 'config_davis.json'),
                          package_name=package_name)
-project.artifacts.upload(filepath=os.path.join('<path to weight>', 'SiamMask_DAVIS.pth'),
+project.artifacts.upload(filepath=os.path.join('your_artifact_source_path', 'SiamMask_DAVIS.pth'),
                          package_name=package_name)
 
 ##################
@@ -64,8 +64,8 @@ service = package.services.deploy(service_name=package.name,
 ###########
 # execute #
 ###########
-item = dl.items.get(item_id='')
-annotation = dl.annotations.get(annotation_id='')
+item = dl.items.get(item_id='your_item_id')
+annotation = dl.annotations.get(annotation_id='your_annotation_id')
 
 execution_input = [
     dl.FunctionIO(name='item', type=dl.PackageInputType.ITEM, value={'item_id': item.id}),
