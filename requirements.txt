@@ -2,7 +2,7 @@ torch
 dtlpy
 https://download.pytorch.org/whl/cu90/torch-1.1.0-cp35-cp35m-win_amd64.whl
 matplotlib==2.1.2
-opencv_python==3.4.2.17
+opencv_python==4.2.0.32
 numpy
 tqdm
 Pillow
